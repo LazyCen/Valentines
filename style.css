@@ -178,23 +178,177 @@ h1 {
 
 .card { z-index: 2; position: relative; }
 
-/* Responsive Design */
-@media (max-width: 600px) {
+/* Responsive Design - Tablet */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
     .card {
-        padding: 40px 20px;
+        padding: 40px 25px;
+        border-radius: 15px;
     }
 
     h1 {
-        font-size: 24px;
-        margin-bottom: 30px;
+        font-size: 28px;
+        margin-bottom: 35px;
     }
 
     .btn {
-        padding: 12px 30px;
+        padding: 14px 35px;
         font-size: 16px;
     }
 
     .buttons-container {
+        gap: 15px;
+    }
+
+    .message {
+        font-size: 20px;
+    }
+
+    .gift {
+        font-size: 24px;
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .card {
+        padding: 30px 15px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 25px;
+        line-height: 1.3;
+    }
+
+    .buttons-container {
+        gap: 8px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .btn {
+        padding: 14px 25px;
+        font-size: 15px;
+        width: 100%;
+        border-radius: 40px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-yes:hover {
+        transform: scale(1.05);
+    }
+
+    .btn-no {
+        background: #ecf0f1;
+    }
+
+    .btn-no:hover {
+        background: #bdc3c7;
+        transform: none;
+    }
+
+    .message {
+        font-size: 18px;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gift {
+        font-size: 20px;
+    }
+
+    .confetti {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Responsive Design - Small Mobile */
+@media (max-width: 400px) {
+    .card {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .buttons-container {
+        gap: 6px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        min-height: 44px;
+    }
+
+    .message {
+        font-size: 16px;
+        min-height: 45px;
+    }
+
+    .gift {
+        font-size: 16px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .card {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+
+    .message {
+        font-size: 14px;
+        min-height: 20px;
+    }
+
+    .buttons-container {
         gap: 10px;
+        margin-bottom: 10px;
     }
 }

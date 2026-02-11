@@ -3,6 +3,7 @@ const noBtn = document.getElementById('noBtn');
 const message = document.getElementById('message');
 
 let noButtonClickCount = 0;
+const isMobile = window.innerWidth <= 768;
 
 yesBtn.addEventListener('click', function() {
     message.textContent = '🎉 Yay! Happy Valentine\'s Day, Mwaahhh! 💕';
@@ -33,9 +34,17 @@ noBtn.addEventListener('click', function() {
     
     // Make the No button harder to click
     if (noButtonClickCount > 0) {
-        const randomX = (Math.random() - 0.5) * 200;
-        const randomY = (Math.random() - 0.5) * 200;
-        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        if (isMobile) {
+            // On mobile, use smaller movements
+            const randomX = (Math.random() - 0.5) * 100;
+            const randomY = (Math.random() - 0.5) * 100;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        } else {
+            // On desktop, use larger movements
+            const randomX = (Math.random() - 0.5) * 200;
+            const randomY = (Math.random() - 0.5) * 200;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
     }
     
     // Make the Yes button bigger each time
@@ -74,6 +83,14 @@ function setupGifts() {
         g.style.bottom = (Math.random() * 40 - 20) + 'px';
     });
 }
+
+// Handle window resize to update mobile detection
+window.addEventListener('resize', function() {
+    const newIsMobile = window.innerWidth <= 768;
+    if (newIsMobile !== isMobile) {
+        location.reload();
+    }
+});
 
 // Initialize after DOM ready
 if (document.readyState === 'loading') {
