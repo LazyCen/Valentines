@@ -218,12 +218,12 @@ h1 {
 
 /* Gif image styling */
 .gifts img {
-    position: absolute;
-    top: 50%;
+    position: fixed;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     max-width: 80%;
-    max-height: 80%;
+    max-height: 40vh;
     object-fit: contain;
     z-index: 1;
 }
@@ -236,7 +236,8 @@ h1 {
 
     .gifts img {
         max-width: 90%;
-        max-height: 60vh;
+        max-height: 35vh;
+        top: 5%;
     }
 
     .container {
