@@ -57,3 +57,27 @@ function createConfetti() {
         setTimeout(() => confetti.remove(), 3000);
     }
 }
+
+// Setup floating gifts positions and animations
+function setupGifts() {
+    const gifts = document.querySelectorAll('.gifts .gift');
+    gifts.forEach((g, i) => {
+        const left = Math.random() * 90 + 2; // percent
+        const delay = Math.random() * -8; // negative to start at different phases
+        const dur = 5 + Math.random() * 6; // 5-11s
+        g.style.left = left + '%';
+        g.style.setProperty('--dur', dur + 's');
+        g.style.animationDelay = delay + 's';
+        // Slight horizontal sway using translateX in a CSS variable is hard, so random rotate
+        g.style.transform = `translateY(0) rotate(${(Math.random()-0.5)*30}deg)`;
+        // Stagger initial vertical position
+        g.style.bottom = (Math.random() * 40 - 20) + 'px';
+    });
+}
+
+// Initialize after DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupGifts);
+} else {
+    setupGifts();
+}
