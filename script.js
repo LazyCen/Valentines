@@ -84,6 +84,7 @@ function setupGifts() {
     });
 }
 
+
 // Handle window resize to update mobile detection
 window.addEventListener('resize', function() {
     const newIsMobile = window.innerWidth <= 768;
@@ -98,3 +99,18 @@ if (document.readyState === 'loading') {
 } else {
     setupGifts();
 }
+
+
+const startBtn = document.getElementById('startBtn');
+const overlay = document.getElementById('overlay');
+const music = document.getElementById('bg-music');
+
+startBtn.addEventListener('click', () => {
+  // 1. Play the music
+  music.play().catch(error => {
+    console.log("Playback failed:", error);
+  });
+  
+  // 2. Hide the overlay
+  overlay.classList.add('hidden');
+});
